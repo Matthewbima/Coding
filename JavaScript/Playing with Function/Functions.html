@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Ultimate Code Playground!</title>
+</head>
+<body>
+    <h1>Welcome to The Ultimate Code Playground!</h1>
+    <p>Choose an action below to explore different functions and challenges:</p>
+
+    <button onclick="showAlert()">Show Alert Example</button>
+    <button onclick="enterName()">Enter Your Name</button>
+    <button onclick="displayConsole()">Console Message</button>
+    <button onclick="printStars()">Print Stars</button>
+    <button onclick="showAddition()">Show Addition Examples</button>
+    <button onclick="multiplicationTable()">Multiplication Table</button>
+    <button onclick="oddOrEven()">Check Odd or Even</button>
+    <button onclick="sumArray()">Sum Array of Numbers</button>
+    <button onclick="checkPalindrome()">Palindrome Checker</button>
+    <button onclick="validateUser()">User Checker</button>
+
+    <h2 id="outputArea"></h2>
+    <p id="specialOutput"></p>
+
+    <script>
+        // Function to display an alert
+        function showAlert() {
+            alert("This is an example of a function!");
+        }
+
+        // Function to collect and display a name
+        function enterName() {
+            let name = prompt("What is your name?");
+            document.getElementById("outputArea").innerText = `Hello, ${name}!`;
+        }
+
+        // Function to display a console message
+        function displayConsole() {
+            console.log("This message is in the console. Open Developer Tools to see it!");
+        }
+
+        // Function to print stars
+        function printStars() {
+            let stars = prompt("How many stars would you like to print?");
+            let starDisplay = "";
+            for (let i = 0; i < stars; i++) {
+                starDisplay += "* ";
+            }
+            document.getElementById("outputArea").innerText = `Your Stars: ${starDisplay}`;
+        }
+
+        // Function for addition examples in console
+        function showAddition() {
+            let numbers = [
+                [10, 7],
+                [29, 10],
+                [145, 127],
+                [76, 13]
+            ];
+            numbers.forEach(pair => {
+                let result = pair[0] + pair[1];
+                console.log(`${pair[0]} + ${pair[1]} = ${result}`);
+            });
+        }
+
+        // Function for multiplication table
+        function multiplicationTable() {
+            let number = prompt("Enter a number for its multiplication table:");
+            let table = [];
+            for (let i = 1; i <= 10; i++) {
+                table.push(`${number} x ${i} = ${number * i}`);
+            }
+            document.getElementById("outputArea").innerHTML = table.join("<br>");
+        }
+
+        // Function to check if a number is odd or even
+        function oddOrEven() {
+            let num = prompt("Enter a number to check if it's odd or even:");
+            let result = (num % 2 === 0) ? "even" : "odd";
+            document.getElementById("outputArea").innerText = `The number ${num} is ${result}.`;
+        }
+
+        // Function to sum an array
+        function sumArray() {
+            let nums = [10, 13, 2, 15, 20, 31];
+            let sum = nums.reduce((acc, num) => acc + num, 0);
+            document.getElementById("outputArea").innerHTML = `Values: ${nums.join(", ")} <br> Sum: ${sum}`;
+        }
+
+        // Function to check if a word is a palindrome
+        function checkPalindrome() {
+            let word = prompt("Enter a word to check if it's a palindrome:");
+            let reversed = word.split("").reverse().join("");
+            let result = (word.toLowerCase() === reversed.toLowerCase()) ? "a palindrome" : "not a palindrome";
+            document.getElementById("outputArea").innerText = `${word} is ${result}.`;
+        }
+
+        // Function for username and password validation
+        function validateUser() {
+            let username = prompt("Enter a username (5+ characters):");
+            let password = prompt("Enter a password (5+ characters with upper, lower, and a number):");
+            
+            function usernameChecker(name) {
+                return name.length >= 5;
+            }
+
+            function passwordChecker(pass) {
+                let hasUpper = /[A-Z]/.test(pass);
+                let hasLower = /[a-z]/.test(pass);
+                let hasNumber = /\d/.test(pass);
+                return pass.length >= 5 && hasUpper && hasLower && hasNumber;
+            }
+
+            if (usernameChecker(username) && passwordChecker(password)) {
+                document.getElementById("specialOutput").innerText = "Username and Password are valid!";
+            } else {
+                document.getElementById("specialOutput").innerText = "Invalid Username or Password.";
+            }
+        }
+    </script>
+</body>
+</html>

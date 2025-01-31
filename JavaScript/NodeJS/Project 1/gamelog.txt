@@ -1,0 +1,24 @@
+--- Game Log: Valorant Legends Server ---
+Date: 2024-11-08
+
+[12:03] Player Phoenix joined the game.
+[12:05] Player Jett joined the game.
+[12:15] Phoenix eliminated Player Raze.
+[12:18] Jett picked up the Spike.
+[12:21] Phoenix and Jett planted the Spike at Site B.
+[12:27] Raze defused the Spike. Round lost.
+[12:33] Player Reyna joined the game.
+[12:37] Phoenix scored a headshot on Raze.
+[12:40] Jett used ultimate: Blade Storm.
+[12:45] Phoenix and Jett won the round.
+
+--- End of Log ---
+
+Date: 2024-11-09
+
+[09:00] Player Sova joined the game.
+[09:10] Sova used Recon Bolt at Site A.
+[09:14] Phoenix eliminated Player Raze.
+[09:20] Team planted the Spike at Site A.
+[09:23] Spike exploded. Round won.
+[09:30] Player Jett left the game.

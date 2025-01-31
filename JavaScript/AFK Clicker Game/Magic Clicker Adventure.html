@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magic Clicker Adventure</title>
+    <style>
+        .center { text-align: center; }
+        .button {
+            cursor: pointer;
+            background-color: #0375B4;
+            color: white;
+            border: solid white 2px;
+            width: 20%;
+            height: 50px;
+            margin: 10px;
+        }
+        .large { font-size: 40px; }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1 class="large">Magic Clicker Adventure</h1>
+        <h2>Magic Points: <span id="magicPoints">0</span></h2>
+        <button onclick="clickMagic()" class="button">Gain Magic!</button>
+        <button onclick="buyAutoMagic()" class="button">Buy Auto-Magic (Cost: 20 points)</button>
+
+        <h3>Auto Magic Power: <span id="autoMagicPower">0</span></h3>
+        <h3>Magic Click Power: <span id="clickPower">1</span></h3>
+
+        <h2>Timer Display</h2>
+        <p>Overall Time: <span id="totalTimer">0:0:0</span></p>
+        <p>Stopwatch: <span id="stopwatch">0:0:0</span></p>
+        <button onclick="toggleStopwatch()" class="button">Start / Stop Stopwatch</button>
+        <button onclick="resetStopwatch()" class="button">Reset Stopwatch</button>
+    </div>
+
+    <script>
+        var magicPoints = 0, clickPower = 1, autoMagicPower = 0, autoEnabled = false;
+        var stopwatch = { seconds: 0, minutes: 0, hours: 0, active: false };
+        var totalTimer = { seconds: 0, minutes: 0, hours: 0 };
+
+        function updateDisplay() {
+            document.getElementById("magicPoints").innerHTML = magicPoints;
+            document.getElementById("autoMagicPower").innerHTML = autoMagicPower;
+            document.getElementById("clickPower").innerHTML = clickPower;
+            document.getElementById("totalTimer").innerHTML = `${totalTimer.hours}:${totalTimer.minutes}:${totalTimer.seconds}`;
+            document.getElementById("stopwatch").innerHTML = `${stopwatch.hours}:${stopwatch.minutes}:${stopwatch.seconds}`;
+        }
+
+        function clickMagic() {
+            magicPoints += clickPower;
+            updateDisplay();
+        }
+
+        function buyAutoMagic() {
+            if (magicPoints >= 20) {
+                magicPoints -= 20;
+                autoMagicPower++;
+                if (!autoEnabled) startAutoMagic();
+                updateDisplay();
+            }
+        }
+
+        function startAutoMagic() {
+            autoEnabled = true;
+            setInterval(() => {
+                magicPoints += autoMagicPower;
+                updateDisplay();
+            }, 1000);
+        }
+
+        setInterval(() => { // Total Timer
+            totalTimer.seconds++;
+            if (totalTimer.seconds >= 60) { totalTimer.seconds = 0; totalTimer.minutes++; }
+            if (totalTimer.minutes >= 60) { totalTimer.minutes = 0; totalTimer.hours++; }
+            updateDisplay();
+        }, 1000);
+
+        setInterval(() => { // Stopwatch Timer
+            if (stopwatch.active) {
+                stopwatch.seconds++;
+                if (stopwatch.seconds >= 60) { stopwatch.seconds = 0; stopwatch.minutes++; }
+                if (stopwatch.minutes >= 60) { stopwatch.minutes = 0; stopwatch.hours++; }
+                updateDisplay();
+            }
+        }, 1000);
+
+        function toggleStopwatch() { stopwatch.active = !stopwatch.active; }
+        function resetStopwatch() { stopwatch.seconds = 0; stopwatch.minutes = 0; stopwatch.hours = 0; updateDisplay(); }
+    </script>
+</body>
+</html>

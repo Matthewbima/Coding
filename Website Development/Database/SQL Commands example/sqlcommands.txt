@@ -1,0 +1,30 @@
+<!-- SELECT -->
+//To select data from students table
+SELECT * FROM `students`
+
+//To select several attribute (fullname, address, email) from students table
+SELECT `fullname`, `address`, `email` FROM `students`
+
+//To select all data ordered by fullname attribute in ascending order
+SELECT * FROM `students` ORDER BY `fullname` ASC
+
+//To select all data ordered by id attribute in descending order
+SELECT * FROM `students` ORDER BY `id` DESC
+
+//To select 2 records and show several attribute (fullname and email) ordered by fullname attribute in ascending order
+SELECT `fullname`, `email` FROM `students` ORDER BY `fullname` ASC LIMIT 2
+
+<!-- INSERT -->
+//To insert a new record to students table
+INSERT INTO `students`(`fullname`, `address`, `email`, `phonenumber`) VALUES ("Leon", "Jln. Kemayoran 1", "leon@gmail.com", "08210938190")
+
+//To insert several records to students table
+INSERT INTO `students`(`fullname`, `address`, `email`, `phonenumber`) VALUES ("Rose", "Jln. Gading 11", "rose@gmail.com", "081827192874"), ("Andrew", "Jln. Sunter 2", "andrew@gmail.com", "08473829209")
+
+<!-- UPDATE -->
+//To update the fullname and email where the ID is 3
+UPDATE `students` SET fullname = "Rio", email = "rio@gmail.com" WHERE `id` = 3
+
+<!-- DELETE -->
+//To delete a record where the ID is 9
+DELETE FROM `students` WHERE `id` = 9

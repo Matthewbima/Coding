@@ -1,0 +1,14 @@
+{
+  "name": "selflearn",
+  "version": "1.0.0",
+  "description": "Selflearn for lesson11 expressjs intro",
+  "main": "index.js",
+  "scripts": {
+    "test": "Standard"
+  },
+  "author": "ISC",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

@@ -1,0 +1,17 @@
+//To select record with all attributes where ID is 4
+SELECT * FROM `students` WHERE `id` = 4
+
+//To select record where the fullname value is ended with "le" word
+SELECT `fullname`, `email`, `phonenumber` FROM `students` WHERE `fullname` LIKE "%le"
+
+//To select record where the fullname value has "os" word in the middle of it
+SELECT `fullname`, `email`, `phonenumber` FROM `students` WHERE `fullname` LIKE "%os%"
+
+//To select record where the fullname value is started with "k" character
+SELECT `fullname`, `email`, `phonenumber` FROM `students` WHERE `fullname` LIKE "k%"
+
+//To select record where the fullname value is "Rose" or "Kenshi'
+SELECT * FROM `students` WHERE `fullname` = "Rose" OR `fullname` = "Kenshi" 
+
+//To select record where in one record, the fullname value is "Leon" and email value is "leon@gmail.com". If one condition is not fulfilled, the data won't be shown
+SELECT * FROM `students` WHERE `fullname` = "Leon" AND `email` = "leon@gmail.com"

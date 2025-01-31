@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Valorant Quiz</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <center>
+        <h1><strong>Valorant Quiz</strong></h1>
+        <p><u>Think you know Valorant? Try this quiz!</u></p>
+
+        <h3><a>Question: <span id="no"></span>/5</a></h3>
+        <h4 id="question"></h4>
+        <form>
+            <label><input type="radio" name="options_answers" id="option1" value="a"> <span id="showA"></span></label><br>
+            <label><input type="radio" name="options_answers" id="option2" value="b"> <span id="showB"></span></label><br>
+            <label><input type="radio" name="options_answers" id="option3" value="c"> <span id="showC"></span></label>
+        </form>
+
+        <p><button onclick="check()" id="btnAnswer" class="button">Answer!</button></p>
+
+        <h3 id="score"></h3>
+    </center>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
